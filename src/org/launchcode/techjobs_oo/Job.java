@@ -16,7 +16,7 @@ public class Job {
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
-    public Job(){
+    public Job() {
         id = nextId;
         nextId++;
     }
@@ -51,7 +51,6 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id, name, employer, location, positionType, coreCompetency);
     }
-
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
@@ -103,14 +102,42 @@ public class Job {
 
     @Override
     public String toString() {
-        return "Job{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", employer=" + employer +
-                ", location=" + location +
-                ", positionType=" + positionType +
-                ", coreCompetency=" + coreCompetency +
-                '}';
+
+        if (this.getName()== null && this.getEmployer()== null && this.getLocation()==null
+                && this.getPositionType()==null && this.getCoreCompetency()==null ) {
+            return  "OOPS! This job does not seem exists";
+
+        }
+
+
+        if (this.getName().equals("")) {
+            this.setName("Data not available");
+        }
+        if (this.employer.getValue().equals("") || this.employer.getValue().equals(null)){
+            this.employer.setValue("Data not available");
+        }
+        if (this.location.getValue().equals("")) {
+            this.location.setValue("Data not available");
+        }
+        if (this.positionType.getValue().equals("")) {
+            this.positionType.setValue("Data not available");
+        }
+        if (this.coreCompetency.getValue() .equals( "")) {
+            this.coreCompetency.setValue("Data not available");
+
+        }
+
+        return
+                " " + '\n' +
+                        " Id :" + id
+                        + "\n Name :" + name + '\n' +
+                        " employer :" + employer + '\n' +
+                        " location :" + location + '\n' +
+                        " positionType :" + positionType + '\n' +
+                        " coreCompetency :" + coreCompetency + "\n" +
+                        " ";
     }
+
 }
+
 
